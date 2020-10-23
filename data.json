@@ -1,0 +1,35 @@
+[{
+        "completed": false,
+        "id": 1,
+        "name": "Morning Coffee"
+    },
+    {
+        "completed": false,
+        "id": 2,
+        "name": "CAFFÈ LATTE"
+    },
+    {
+        "completed": false,
+        "id": 3,
+        "name": "CAFFÈ MOCHA"
+    },
+
+    {
+        "completed": false,
+        "id": 4,
+        "name": "CAPPUCCINO"
+    },
+
+    {
+        "completed": false,
+        "id": 5,
+        "name": "ESPRESSO"
+    },
+
+    {
+        "completed": false,
+        "id": 6,
+        "name": "AMERICANO "
+    }
+
+]
