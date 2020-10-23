@@ -10,8 +10,12 @@ app.listen(port, () => {
 });
 
 app.get('/', (req, res) => {
+    res.send('Hi, I am Samaneh Vajdi. I use Node and Express for serving this content');
+});
+
+app.get('/data', (req, res) => {
     let response = {
         todos: data
     };
     res.send(response);
-});
+})
