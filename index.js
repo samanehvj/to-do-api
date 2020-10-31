@@ -41,6 +41,26 @@ function addTodo(req, res){
 
 }
 
+//Edit TODO
+function editTodo(req, res){
+    //Get Data
+    let data = require("./data.json");
+    console.log("Edit TODO Request Comming In... ");
+
+    //Get all TODO with modified TODO
+    data = data.map(function (todo) {
+        if (todo.id === req.body.id) {
+            todo.name = req.body.name;
+            todo.completed = req.body.completed;
+        }
+        return todo;
+    });
+
+    //Return new response
+    getTodos(req, res);
+
+}
+
 //Samaneh Vajdi Greeting for Nathan Homework
 function svGreeting(req, res)  {
     res.send('Hi, I am Samaneh Vajdi. I use Node and Express for serving this content');
@@ -50,6 +70,7 @@ app.get('/', svGreeting);
 
 app.get("/todo/", getTodos);
 app.post("/todo/", addTodo);
+app.put("/todo/", editTodo);
 
 
 function appStart(){
