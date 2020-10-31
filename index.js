@@ -49,18 +49,24 @@ function editTodo(req, res){
     let data = require("./data.json");
     console.log("Edit TODO Request Comming In... ");
 
+    let validId = false;
     //Get all TODO with modified TODO
     data = data.map(function (todo) {
         if (todo.id === req.body.id) {
             todo.name = req.body.name;
             todo.completed = req.body.completed;
+            validId = true;
         }
         return todo;
     });
 
-    //Return new response
-    let response = { todos: data};
-    res.send(response);
+    if(!validId) {
+        res.send({"error": "The Id is not valid"});
+    } else {
+        //Return new response
+        let response = { todos: data};
+        res.send(response);
+    }
 
 }
 
@@ -69,16 +75,25 @@ function deleteTodo(req, res){
     //Get Data
     let data = require("./data.json");
     console.log("Delete TODO Request Comming In... ");
-    //remove TODO using id
+
+    let validId = false;
+    //Remove TODO using id
     data = data.filter(function (todo) {
         if (todo.id != req.body.id) {
             return todo;
+        } else {
+            validId = true;
         }
     });
 
-    //Return new response
-    let response = { todos: data};
-    res.send(response);
+    if(!validId) {
+        res.send({"error": "The Id is not valid"});
+    } else {
+        //Return new response
+        let response = { todos: data};
+        res.send(response);
+    }
+    
 }
 
 //Samaneh Vajdi Greeting for Nathan Homework
