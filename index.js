@@ -38,7 +38,8 @@ function addTodo(req, res){
     data.push(newTodo);
 
     //Return new response
-    getTodos(req, res);
+    let response = { todos: data};
+    res.send(response);
 
 }
 
@@ -58,8 +59,26 @@ function editTodo(req, res){
     });
 
     //Return new response
-    getTodos(req, res);
+    let response = { todos: data};
+    res.send(response);
 
+}
+
+//Delete TODO
+function deleteTodo(req, res){
+    //Get Data
+    let data = require("./data.json");
+    console.log("Delete TODO Request Comming In... ");
+    //remove TODO using id
+    data = data.filter(function (todo) {
+        if (todo.id != req.body.id) {
+            return todo;
+        }
+    });
+
+    //Return new response
+    let response = { todos: data};
+    res.send(response);
 }
 
 //Samaneh Vajdi Greeting for Nathan Homework
@@ -72,6 +91,7 @@ app.get('/', svGreeting);
 app.get("/todo/", getTodos);
 app.post("/todo/", addTodo);
 app.put("/todo/", editTodo);
+app.delete("/todo/", deleteTodo);
 
 
 function appStart(){
