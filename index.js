@@ -8,6 +8,7 @@ app.use(express.json());
 function getTodos(req, res){
     //Get Data
     let data = require("./data.json");
+    console.log("Get TODO Request Comming In... ");
     let response = { todos: data};
     res.send(response);
 }
