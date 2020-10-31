@@ -49,7 +49,7 @@ function svGreeting(req, res)  {
 app.get('/', svGreeting);
 
 app.get("/todo/", getTodos);
-app.post("/todo/add", addTodo);
+app.post("/todo/", addTodo);
 
 
 function appStart(){
